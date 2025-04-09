@@ -1,0 +1,28 @@
+<svg width="1000" height="300" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .logo-text { fill: #FFD700; }
+    .diamond { fill: #FFD700; }
+    .arch { fill: none; stroke: #FFD700; stroke-width: 12; }
+    .trading-text { fill: #FFD700; font-size: 24px; }
+  </style>
+  
+  <!-- Arches -->
+  <path class="arch" d="M200,200 A100,100 0 0,1 300,100"/>
+  <path class="arch" d="M300,100 A100,100 0 0,1 400,200"/>
+  
+  <!-- Diamond -->
+  <path class="diamond" d="M290,70 L310,70 L300,50 Z"/>
+  
+  <!-- Dots -->
+  <circle cx="290" cy="100" r="4" fill="#FFD700"/>
+  <circle cx="310" cy="100" r="4" fill="#FFD700"/>
+  
+  <!-- MASYA Text -->
+  <text x="420" y="180" class="logo-text" style="font-size: 120px; font-weight: bold;">MASYA</text>
+  
+  <!-- For Trading Text -->
+  <text x="420" y="220" class="trading-text">For Trading</text>
+  
+  <!-- Registered Trademark -->
+  <text x="800" y="120" class="logo-text" style="font-size: 40px;">®</text>
+</svg>

@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  ::selection {
+    @apply bg-primary-500/30 text-primary-900 dark:text-primary-100; /* Fixed space between 'dark:' and 'text-primary-100' */
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  .sm\:space-x-8> :not([hidden])~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  .space-x-4> :not([hidden])~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  .space-x-3> :not([hidden])~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  .space-x-2> :not([hidden])~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+
+  .mr-2 {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+
+  .ml-2 {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+
+  .mr-4 {
+    margin-right: 0;
+    margin-left: 1rem;
+  }
+
+  .ml-4 {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .left-0 {
+    left: auto;
+    right: 0;
+  }
+
+  .right-0 {
+    right: auto;
+    left: 0;
+  }
+
+  .text-left {
+    text-align: right;
+  }
+
+  .text-right {
+    text-align: left;
+  }
+}
+
+/* Product Grid Styles */
+.product-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+}
+
+.product-card {
+  @apply bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transform transition-all duration-500 relative;
+}
+
+.product-image {
+  @apply relative h-[300px] overflow-hidden;
+}
+
+.product-overlay {
+  @apply absolute inset-0 bg-gradient-to-br from-primary-600/90 to-primary-800/90 opacity-90 group-hover:opacity-75 transition-opacity duration-300;
+}
+
+.product-content {
+  @apply absolute inset-0 p-8 flex flex-col justify-center items-center text-center;
+}
+
+.product-title {
+  @apply text-3xl font-bold text-white mb-2 transform group-hover:-translate-y-1 transition-transform duration-300;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply backdrop-blur-lg bg-white/10 dark:bg-black/30 border border-white/20 dark:border-white/10;
+}
+
+/* Custom Utilities */
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 rounded-full bg-primary-500 text-white font-medium hover:bg-primary-600 hover:shadow-glow transform hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden dark:bg-primary-600 dark:hover:bg-primary-700;
+  }
+
+  .card {
+    @apply bg-white dark:bg-dark-card rounded-2xl shadow-soft dark:shadow-none p-6 hover:shadow-lg dark:hover:shadow-glow transition-all duration-300 hover:shadow-inner-glow dark:hover:bg-dark-card/80;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center relative after:content-[''] after:absolute after:bottom-0
+  }}

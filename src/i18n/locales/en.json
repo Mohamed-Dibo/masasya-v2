@@ -1,0 +1,168 @@
+{
+  "nav": {
+    "home": "Home",
+    "logos": "Logos",
+    "about": "About Us",
+    "products": "Products",
+    "contact": "Contact Us",
+    "dashboard": "Add Product"
+  },
+  "products": {
+    "kitchenCabinets": "Kitchen Cabinets",
+    "wardrobes": "Wardrobes",
+    "Aluminum": "Aluminum",
+    "doors": "Doors",
+    "woodenFlooring": "Wooden Flooring",
+    "kitchenAccessories": "Kitchen Accessories",
+    "handles": "Handles",
+    "mattHpl": "Matt HPL",
+    "mdfHighGlossy": "MDF High Glossy",
+    "aluminum": "Aluminum",
+    "Glossary-Hpl": "Glossary HPL",
+    "basicHardware": "Basic Hardware",
+    "chipboardPanels": "Chipboard Panels"
+  },
+  "home": {
+    "hero": {
+      "slides": {
+        "1": {
+          "title": "Masasya Trading Company",
+          "subtitle": "Excellence in Every Detail",
+          "description": "Transform your space with our premium kitchen and wardrobe solutions"
+        },
+        "2": {
+          "title": "Modern Elegance",
+          "subtitle": "Contemporary Kitchen Designs",
+          "description": "Experience the perfect blend of style and functionality"
+        },
+        "3": {
+          "title": "Premium Materials",
+          "subtitle": "Quality That Lasts",
+          "description": "Discover the finest materials for your dream kitchen"
+        },
+        "4": {
+          "title": "Timeless Style",
+          "subtitle": "Where Tradition Meets Innovation",
+          "description": "Create spaces that stand the test of time"
+        }
+      },
+      "cta": {
+        "products": "Explore Our Products",
+        "contact": "Contact Us",
+        "getStarted": "Get Started Today"
+      }
+    },
+    "features": {
+      "quality": {
+        "title": "Premium Quality",
+        "description": "Exceptional materials and expert craftsmanship"
+      },
+      "design": {
+        "title": "Modern Design",
+        "description": "Contemporary aesthetics for your space"
+      },
+      "maintenance": {
+        "title": "Easy Maintenance",
+        "description": "Durable and easy-to-clean surfaces"
+      },
+      "delivery": {
+        "title": "Fast Delivery",
+        "description": "Quick and reliable shipping service"
+      },
+      "support": {
+        "title": "Expert Support",
+        "description": "Professional guidance and assistance"
+      },
+      "service": {
+        "title": "24/7 Service",
+        "description": "Round-the-clock customer support"
+      }
+    },
+    "whyChooseUs": "Why Choose Us",
+    "experienceExcellence": "Experience excellence in every aspect of our service",
+    "readyToTransform": "Ready to Transform Your Kitchen?",
+    "letCreate": "Let's create your dream kitchen together. Contact us today for a free consultation."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your Trusted Partner for Premium Kitchen Solutions",
+    "story": {
+      "title": "Our Story",
+      "content1": "Since our establishment, Masasya has been a leading provider of high-quality kitchen materials and accessories. Our commitment to excellence has made us a trusted name in the industry.",
+      "content2": "We work with leading manufacturers and suppliers to bring you the best products at competitive prices. Our extensive range includes everything from HPL panels to kitchen accessories.",
+      "content3": "Our dedication to quality and customer satisfaction drives everything we do. We're proud to be your partner in creating beautiful, functional kitchen spaces."
+    },
+    "values": {
+      "title": "Our Values",
+      "quality": {
+        "title": "Quality Excellence",
+        "description": "We never compromise on the quality of our products"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Constantly updating our product range with the latest innovations"
+      },
+      "customerFocus": {
+        "title": "Customer Focus",
+        "description": "Dedicated to providing exceptional customer service"
+      }
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "categories": "Product Categories",
+      "satisfaction": "Customer Satisfaction"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To provide innovative and high-quality kitchen solutions that enhance the functionality and aesthetics of living spaces."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be the leading provider of premium kitchen materials in the region, recognized for our quality and service excellence."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for all your kitchen material needs",
+    "form": {
+      "title": "Send us a Message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    },
+    "info": {
+      "phone": {
+        "title": "Phone",
+        "numbers": [
+          "+971 4 123 4567",
+          "+971 50 123 4567"
+        ]
+      },
+      "email": {
+        "title": "Email",
+        "addresses": [
+          "info@masasya.com",
+          "sales@masasya.com"
+        ]
+      },
+      "location": {
+        "title": "Location",
+        "addresses": [
+          "Showroom: Dubai, UAE",
+          "Warehouse: Industrial Area, Sharjah"
+        ]
+      },
+      "hours": {
+        "title": "Working Hours",
+        "times": [
+          "Mon - Sat: 9:00 AM - 8:00 PM",
+          "Friday: 2:00 PM - 8:00 PM"
+        ]
+      }
+    }
+  }
+}
