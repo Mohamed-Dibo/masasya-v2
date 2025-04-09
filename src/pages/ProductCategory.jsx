@@ -21,14 +21,14 @@ function ProductCategory() {
         setLoading(true);
         
         // Fetch regular products
-        const regularResponse = await fetch(`http://localhost:3000/api/images/${category}`);
+        const regularResponse = await fetch(`https://image-gallery-api-2.onrender.com/api/images/${category}`);
         if (!regularResponse.ok) throw new Error('Failed to fetch regular products');
         const regularData = await regularResponse.json();
         
         // If category is handles, fetch new handles
         let newHandlesData = [];
         if (category.toLowerCase() === 'handles') {
-          const newHandlesResponse = await fetch('http://localhost:3000/api/images/HANDLES/newhandels');
+          const newHandlesResponse = await fetch('https://image-gallery-api-2.onrender.com/api/images/HANDLES/newhandels');
           if (newHandlesResponse.ok) {
             newHandlesData = await newHandlesResponse.json();
             // Add isNew flag to new handles
@@ -189,7 +189,7 @@ function ProductCategory() {
                 onClick={() => openModal(product)}
               >
                 <img
-                  src={`http://localhost:3000/${product.imageURL}`}
+                  src={`https://image-gallery-api-2.onrender.com/${product.imageURL}`}
                   alt={product.productName}
                   className="w-full h-full object-cover transform group-hover:scale-110 
                            transition-transform duration-700"
@@ -282,7 +282,7 @@ function ProductCategory() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  src={`http://localhost:3000/${selectedProduct.imageURL}`}
+                  src={`https://image-gallery-api-2.onrender.com/${selectedProduct.imageURL}`}
                   alt={selectedProduct.productName}
                   className="max-w-full max-h-[90vh] object-contain"
                   onClick={(e) => e.stopPropagation()}
