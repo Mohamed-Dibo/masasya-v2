@@ -20,9 +20,9 @@ function Footer() {
           <motion.div {...fadeInUp} className="space-y-4">
             <Link to="/" className="block mb-6">
               <img 
-                src="/logo.svg" 
+                src="6.jpg" 
                 alt="Masya" 
-                className="h-16 w-auto brightness-200"
+                className="h-100 w-100 brightness-200"
               />
             </Link>
             <p className="text-gray-300 text-lg leading-relaxed">

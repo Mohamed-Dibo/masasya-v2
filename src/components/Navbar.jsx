@@ -12,7 +12,7 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY < 0);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -43,8 +43,8 @@ function Navbar() {
     <>
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-wood-dark/95 backdrop-blur-lg shadow-lg'
-          : 'bg-wood-dark/80 backdrop-blur-md'
+          ? 'bg-black backdrop-blur-lg shadow-lg'
+          : 'bg-black backdrop-blur-md'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20">
@@ -52,7 +52,7 @@ function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <img 
                   className="h-12 w-auto transform hover:scale-105 transition-transform duration-300" 
-                  src="/logo.svg" 
+                  src="6.jpg" 
                   alt="Masya" 
                 />
               </Link>

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AuthProvider } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
+// import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -11,7 +11,7 @@ import Products from './pages/Products';
 import ProductCategory from './pages/ProductCategory';
 import ProductDetails from './pages/ProductDetails';
 import Contact from './pages/Contact';
-import AddProduct from './pages/Dashboard/AddProduct';
+// import AddProduct from './pages/Dashboard/AddProduct';
 import Login from './pages/Login';
 import './i18n';
 import Logos from './pages/logos';
@@ -19,6 +19,7 @@ import Aluminum from './pages/Aluminum';
 import BasicHardware from './pages/BasicHardware';
 import KitchenAccessories from './pages/kitchenAccessories';
 import KitchenDesigner from './pages/KitchenDesigner';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const { i18n } = useTranslation();
@@ -30,6 +31,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-gray-50 font-arabic">
           <Navbar />
           <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading...</div>}>
@@ -55,11 +57,13 @@ function App() {
                     </ProtectedRoute>
                   } 
                 /> */}
+                
               </Routes>
             </main>
           </Suspense>
           <Footer />
         </div>
+        {/* </ScrollToTop> */}
       </Router>
     </AuthProvider>
   );
