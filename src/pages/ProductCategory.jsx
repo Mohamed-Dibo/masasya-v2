@@ -191,6 +191,7 @@ function ProductCategory() {
                 <img
                   src={`https://image-gallery-api-2.onrender.com${product.imageURL}`}
                   alt={product.productName}
+                    crossOrigin="anonymous"
                   className="w-full h-full object-cover transform group-hover:scale-110 
                            transition-transform duration-700"
                 />
@@ -284,6 +285,7 @@ function ProductCategory() {
                   transition={{ duration: 0.3 }}
                   src={`https://image-gallery-api-2.onrender.com${selectedProduct.imageURL}`}
                   alt={selectedProduct.productName}
+                    crossOrigin="anonymous"
                   className="max-w-full max-h-[90vh] object-contain"
                   onClick={(e) => e.stopPropagation()}
                 />
