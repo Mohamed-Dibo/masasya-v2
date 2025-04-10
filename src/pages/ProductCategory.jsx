@@ -189,7 +189,7 @@ function ProductCategory() {
                 onClick={() => openModal(product)}
               >
                 <img
-                  src={`https://image-gallery-api-2.onrender.com/${product.imageURL}`}
+                  src={`https://image-gallery-api-2.onrender.com${product.imageURL}`}
                   alt={product.productName}
                   className="w-full h-full object-cover transform group-hover:scale-110 
                            transition-transform duration-700"
@@ -282,7 +282,7 @@ function ProductCategory() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  src={`https://image-gallery-api-2.onrender.com/${selectedProduct.imageURL}`}
+                  src={`https://image-gallery-api-2.onrender.com${selectedProduct.imageURL}`}
                   alt={selectedProduct.productName}
                   className="max-w-full max-h-[90vh] object-contain"
                   onClick={(e) => e.stopPropagation()}
