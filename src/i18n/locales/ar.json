@@ -13,14 +13,14 @@
     "Aluminum": "المونيوم",
     "doors": "الأبواب",
     "woodenFlooring": "الأرضيات الخشبية",
-    "kitchenAccessories": "اكسسوارات المطبخ",
+    "kitchenAccessories": "اكسسوارات مطابخ وخزائن",
     "handles": "مقابض",
-    "mattHpl": "مات اتش بي ال",
-    "mdfHighGlossy": "ام دي اف هاي جلوسي",
-    "aluminum": "ألمنيوم",
-    "Glossary-Hpl": "جلوسي اتش بي ال",
-    "basicHardware": "الأجهزة الأساسية",
-    "chipboardPanels": "ألواح الخشب المضغوط"
+    "mattHpl": "الواح فورميكا مطفي",
+    "mdfHighGlossy": "خشب ام دي اف",
+    "aluminum": "قطاعات المونيوم",
+    "Glossary-Hpl": "الواح فورميكا لامع",
+    "basicHardware": "اكسسوارات اساسية داخلية",
+    "chipboardPanels": "التشيبورد"
   },
   "home": {
     "hero": {
