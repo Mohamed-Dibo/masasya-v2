@@ -101,7 +101,8 @@ function Logos() {
                        transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="aspect-square relative mb-4">
-              <img src={`https://image-gallery-api-2.onrender.com/${logo.imageURL}`}
+              <img src={`https://image-gallery-api-2.onrender.com${logo.imageURL}`}
+              
                 alt={logo.productName}
                 className="absolute inset-0 w-full h-full object-contain"
                   />
