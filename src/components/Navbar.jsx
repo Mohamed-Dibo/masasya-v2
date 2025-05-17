@@ -52,7 +52,7 @@ function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <img 
                   className="h-12 w-auto transform hover:scale-105 transition-transform duration-300" 
-                  src="6.jpg" 
+                  src="logo_mas.png" 
                   alt="Masya" 
                 />
               </Link>
