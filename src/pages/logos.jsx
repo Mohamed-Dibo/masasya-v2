@@ -10,7 +10,7 @@ function Logos() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/images/LOGO`);
+        const response = await fetch(`https://image-gallery-api-2.onrender.com/api/images/LOGO`);
         const data = await response.json(); // assuming the data is in JSON format
         console.log(data);
         setLogos(data)
@@ -101,11 +101,11 @@ function Logos() {
                        transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="aspect-square relative mb-4">
-                <img
-                  src={`http://localhost:3000/${logo.imageURL}`}
-                  alt={logo.productName}
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
+              <img src={`https://image-gallery-api-2.onrender.com/${logo.imageURL}`}
+                alt={logo.productName}
+                className="absolute inset-0 w-full h-full object-contain"
+                  />
+
               </div>
               <h3 className="text-xl font-semibold text-center text-gray-900">
                 {logo.productName}
