@@ -25,7 +25,7 @@ function KitchenDesigner() {
     if (selectedMaterial) {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:3000/api/images/${selectedMaterial}`);
+        const response = await fetch(`https://image-gallery-api-2.onrender.com/api/images/${selectedMaterial}`);
         if (!response.ok) throw new Error('Failed to fetch images');
         const data = await response.json();
         setImages(data);
@@ -41,7 +41,7 @@ function KitchenDesigner() {
   const handleImageClick = async (imageUrl, imageName) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/images/app/${material}/${section}/${imageName}`
+        `https://image-gallery-api-2.onrender.com/api/images/app/${material}/${section}/${imageName}`
       );
       if (!response.ok) throw new Error('Failed to fetch design element');
       const data = await response.json();
@@ -49,7 +49,7 @@ function KitchenDesigner() {
       
       setDesignElements(prev => [...prev, {
         id: Date.now(),
-        url: `http://localhost:3000${modifiedURL}`,
+        url: `https://image-gallery-api-2.onrender.com${modifiedURL}`,
         name: imageName,
         section
       }]);
@@ -278,7 +278,7 @@ function KitchenDesigner() {
                     >
                       <div className="aspect-square rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-800">
                         <img
-                          src={`http://localhost:3000${image.imageURL}`}
+                          src={`https://image-gallery-api-2.onrender.com${image.imageURL}`}
                           alt={image.productName}
                           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           // crossOrigin="anonymous"
