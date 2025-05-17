@@ -3,9 +3,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Aluminum() {
-const [showDetails,setShowDetails] = useState(false);
+  const [detailsVisible, setDetailsVisible] = useState({});
 
-  // Array of aluminum products with their details
+  const toggleDetails = (id) => {
+    setDetailsVisible((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id], // عكس القيمة الحالية للكرت المحدد
+    }));
+  };
+
   const aluminumProducts = [
     {
       id: 1,
@@ -21,7 +27,6 @@ const [showDetails,setShowDetails] = useState(false);
       price: 45.99,
       image: "/images/LED_profile2.jpg"
     },
-   
     {
       id: 4,
       name: "Aluminum Corner Guard",
@@ -29,23 +34,20 @@ const [showDetails,setShowDetails] = useState(false);
       price: 19.99,
       image: "/images/Closets_profile.jpg"
     },
-    
     {
       id: 5,
       name: "Aluminum Corner Guard",
       description: "Protective aluminum corner guard with sleek design",
       price: 19.99,
       image: "/images/GLASS_PROFILE.jpg"
-    }
-  , {
-    id: 3,
-    name: "Aluminum Corner Guard",
-    description: "Protective aluminum corner guard with sleek design",
-    price: 19.99,
-    image: "/images/Closets_profile_new.jpg"
-  },
-    
-    // Add more products as needed
+    },
+    {
+      id: 3,
+      name: "Aluminum Corner Guard",
+      description: "Protective aluminum corner guard with sleek design",
+      price: 19.99,
+      image: "/images/Closets_profile_new.jpg"
+    },
   ];
 
   return (
@@ -89,10 +91,13 @@ const [showDetails,setShowDetails] = useState(false);
                   {product.name}
                 </h2>
                 {
-                  showDetails && <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {product.description}
-                </p>
-                }
+            detailsVisible[product.id] && (
+               <p className="text-gray-600 dark:text-gray-300 mb-4">
+              {product.description}
+               </p>
+                  )
+                     }
+
                 
                 <div className="flex items-center justify-between">
                   {/* <span className="text-2xl font-bold text-primary-600">
@@ -101,11 +106,9 @@ const [showDetails,setShowDetails] = useState(false);
                   <button
                     className="px-4 py-2 bg-primary-500 text-white rounded-lg
                              hover:bg-primary-600 transition-colors duration-300"
-                             onClick={()=>{
-                              setShowDetails(!showDetails)
-                            }}
+                    onClick={() => toggleDetails(product.id)}
                   >
-                    View Details
+                    {detailsVisible[product.id] ? 'Hide Details' : 'View Details'}
                   </button>
                 </div>
               </div>
