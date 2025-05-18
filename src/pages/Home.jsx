@@ -13,6 +13,7 @@ import {
   PhoneIcon
 } from '@heroicons/react/24/outline';
 import LogosSection from '../components/LogosSection';
+import HeroSlider from '../components/HeroSlider';
 
 function Home() {
   const { t } = useTranslation();
@@ -313,9 +314,13 @@ function Home() {
           </motion.div>
         </div>
       </section>
+
+      <HeroSlider />
         {/* Logos Section */}
         <LogosSection />
 
+
+        
     </div>
   );
 }
