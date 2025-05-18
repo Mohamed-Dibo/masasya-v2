@@ -20,6 +20,7 @@ import BasicHardware from './pages/BasicHardware';
 import KitchenAccessories from './pages/kitchenAccessories';
 import KitchenDesigner from './pages/KitchenDesigner';
 import ScrollToTop from './components/ScrollToTop';
+import ClosetsAccessories from './pages/ClosetsAccessories';
 
 function App() {
   const { i18n } = useTranslation();
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/products/Aluminum" element={<Aluminum />} />
                 <Route path="/products/basichardware" element={<BasicHardware />} />
                 <Route path="/products/kitchenAccessories" element={<KitchenAccessories />} />
+                <Route path="/products/ClosetsAccessories" element={<ClosetsAccessories />} />
                 <Route path="/products/:category" element={<ProductCategory />} />
                 <Route path="/products/:category/:id" element={<ProductDetails />} />
                 <Route path="/contact" element={<Contact />} />

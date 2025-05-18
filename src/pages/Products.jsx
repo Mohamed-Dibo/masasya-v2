@@ -14,6 +14,12 @@ function Products() {
       description: 'Essential accessories to enhance kitchen functionality'
     },
     {
+      id: 'ClosetsAccessories',
+      name: 'Closets Accessories',
+      image: '/images/ASYA/ASYA-903/07-衣柜.jpg',
+      description: 'Essential accessories to enhance kitchen functionality'
+    },
+    {
       id: 'handles',
       name: 'Handles',
       image: 'handle.jpg',

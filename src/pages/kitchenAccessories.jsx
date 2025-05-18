@@ -19,75 +19,8 @@ function KitchenAccessories() {
         "/images/ASYA/ASY4-924/DSC_0587.JPG"
       ]
     },
-    {
-      id: "ASYA-900",
-      name: "ASYA-900",
-      size: "900 MM",
-      images: ["/images/ASYA/ASYA-900/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-901",
-      name: "ASYA-901",
-      size: "900 MM",
-      images: ["/images/ASYA/ASYA-901/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-902",
-      name: "ASYA-902",
-      size: "900 MM",
-      images: ["/images/ASYA/ASYA-902/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-903",
-      name: "ASYA-903",
-      size: "900 MM",
-      images: ["/images/ASYA/ASYA-903/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-904",
-      name: "ASYA-904",
-      size: "900 MM",
-      images: ["/images/ASYA/ASYA-904/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-905",
-      name: "ASYA-905",
-      size: "400 MM - 600 MM",
-      images: ["/images/ASYA/ASYA-905/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-906",
-      name: "ASYA-906",
-      size: ">/= 300 MM",
-      images: [
-        "/images/ASYA/ASYA-906/07-衣柜-1.jpg",
-        "/images/ASYA/ASYA-906/07-衣柜-2.jpg"
-      ]
-    },
-    {
-      id: "ASYA-907",
-      name: "ASYA-907",
-      size: "400 MM - 600 MM",
-      images: ["/images/ASYA/ASYA-907/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-908",
-      name: "ASYA-908",
-      size: "900 MM - 1000 MM",
-      images: ["/images/ASYA/ASYA-908/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-909",
-      name: "ASYA-909",
-      size: ">/= 600 MM",
-      images: ["/images/ASYA/ASYA-909/07-衣柜.jpg"]
-    },
-    {
-      id: "ASYA-910",
-      name: "ASYA-910",
-      size: "400 MM - 600 MM",
-      images: ["/images/ASYA/ASYA-910/07-衣柜.jpg"]
-    },
+    
+
     {
       id: "ASYA-920",
       name: "ASYA-920",
@@ -324,36 +257,6 @@ function KitchenAccessories() {
       name: "ACS 908 GREY NEW",
       size: "830-1150mm",
       images: ["/images/ASYA/NEW ACCESSORIES/ACS 908 GREY NEW.jpeg"]
-    },
-    {
-      id: "ACS-947",
-      name: "ACS 947 GREY NEW",
-      size: "630*455*115mm",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 947 GREY NEW.jpeg"]
-    },
-    {
-      id: "ACS-948",
-      name: "ACS 948 GREY NEW",
-      size: "864*460*71mm",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 948 GREY NEW.jpg"]
-    },
-    {
-      id: "ACS-949",
-      name: "ACS 949 GREY NEW",
-      size: "864*460*175mm",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 949 GREY NEW.jpg"]
-    },
-    {
-      id: "ACS-950",
-      name: "ACS 950 GREY NEW",
-      size: "864*460*175mm",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 950 GREY NEW.jpg"]
-    },
-    {
-      id: "ACS-951",
-      name: "ACS 951 GREY NEW",
-      size: "700×360×1350-1550mm 8-LAYER",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 951 GREY NEW.jpeg"]
     }
   ];
 

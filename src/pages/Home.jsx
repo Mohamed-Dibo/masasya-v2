@@ -13,7 +13,7 @@ import {
   PhoneIcon
 } from '@heroicons/react/24/outline';
 import LogosSection from '../components/LogosSection';
-import HeroSlider from '../components/HeroSlider';
+
 
 function Home() {
   const { t } = useTranslation();
@@ -43,7 +43,38 @@ function Home() {
       title: t('home.hero.slides.4.title'),
       subtitle: t('home.hero.slides.4.subtitle'),
       description: t('home.hero.slides.4.description')
-    }
+    },
+    {
+      image: "slider157..png",
+      title: t('home.hero.slides.4.title'),
+      subtitle: t('home.hero.slides.4.subtitle'),
+      description: t('home.hero.slides.4.description')
+    },
+    {
+      image: "slider157.png",
+      title: t('home.hero.slides.4.title'),
+      subtitle: t('home.hero.slides.4.subtitle'),
+      description: t('home.hero.slides.4.description')
+    },
+    {
+      image: "slider227..png",
+      title: t('home.hero.slides.4.title'),
+      subtitle: t('home.hero.slides.4.subtitle'),
+      description: t('home.hero.slides.4.description')
+    },
+    {
+      image: "slider227.png",
+      title: t('home.hero.slides.4.title'),
+      subtitle: t('home.hero.slides.4.subtitle'),
+      description: t('home.hero.slides.4.description')
+    },
+    
+    {
+      image: "slider232.png",
+      title: t('home.hero.slides.4.title'),
+      subtitle: t('home.hero.slides.4.subtitle'),
+      description: t('home.hero.slides.4.description')
+    },
   ];
 
   useEffect(() => {
@@ -315,7 +346,6 @@ function Home() {
         </div>
       </section>
 
-      <HeroSlider />
         {/* Logos Section */}
         <LogosSection />
 
