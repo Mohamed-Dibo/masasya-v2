@@ -251,13 +251,8 @@ function KitchenAccessories() {
         "/images/ASYA/ASYA-945ASYA-946/01-铝合金拉篮-2.jpg",
         "/images/ASYA/ASYA-945ASYA-946/01-铝合金拉篮-3.jpg"
       ]
-    },
-    {
-      id: "ACS-908",
-      name: "ACS 908 GREY NEW",
-      size: "830-1150mm",
-      images: ["/images/ASYA/NEW ACCESSORIES/ACS 908 GREY NEW.jpeg"]
     }
+    
   ];
 
   const sizes = [...new Set(accessories.map(item => item.size))];

@@ -10,7 +10,7 @@ function Products() {
     {
       id: 'kitchenAccessories',
       name: 'Kitchen Accessories',
-      image: 'accessories.jpg',
+      image: '/images/ASYA/ASYA-922ASYA-923/DSC_00351.jpg',
       description: 'Essential accessories to enhance kitchen functionality'
     },
     {

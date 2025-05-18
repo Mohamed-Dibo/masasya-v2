@@ -455,6 +455,11 @@ function ClosetsAccessories() {
       name: "ACS 951 GREY NEW",
       size: "700×360×1350-1550mm 8-LAYER",
       images: ["/images/ASYA/NEW ACCESSORIES/ACS 951 GREY NEW.jpeg"]
+    },{
+      id: "ACS-908",
+      name: "ACS 908 GREY NEW",
+      size: "830-1150mm",
+      images: ["/images/ASYA/NEW ACCESSORIES/ACS 908 GREY NEW.jpeg"]
     }
   ];
   
