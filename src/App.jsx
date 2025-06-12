@@ -14,13 +14,15 @@ import Contact from './pages/Contact';
 // import AddProduct from './pages/Dashboard/AddProduct';
 import Login from './pages/Login';
 import './i18n';
-import Logos from './pages/logos';
+
 import Aluminum from './pages/Aluminum';
 import BasicHardware from './pages/BasicHardware';
 import KitchenAccessories from './pages/kitchenAccessories';
 import KitchenDesigner from './pages/KitchenDesigner';
 import ScrollToTop from './components/ScrollToTop';
 import ClosetsAccessories from './pages/ClosetsAccessories';
+import Catalogues from './pages/Catalogues';
+import Chatbot from './components/Chatbot';
 
 function App() {
   const { i18n } = useTranslation();
@@ -40,7 +42,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/logos" element={<Logos />} /> 
+                <Route path="/Catalogues" element={<Catalogues />} /> 
                 <Route path="/KitchenDesigner" element={<KitchenDesigner />} /> 
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/Aluminum" element={<Aluminum />} />
@@ -63,6 +65,7 @@ function App() {
               </Routes>
             </main>
           </Suspense>
+          <Chatbot />
           <Footer />
         </div>
         {/* </ScrollToTop> */}

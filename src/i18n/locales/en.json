@@ -7,6 +7,8 @@
     "contact": "Contact Us",
     "dashboard": "Add Product"
   },
+  "catalogues" : "Need a specific catalogue ? ",
+  "RequestCatalogue" : "Request a Catalogue",
   "products": {
     "kitchenCabinets": "Kitchen Cabinets",
     "wardrobes": "Wardrobes",
@@ -21,7 +23,9 @@
     "aluminum": "Aluminum",
     "Glossary-Hpl": "Glossary HPL",
     "basicHardware": "Basic Hardware",
-    "chipboardPanels": "Chipboard Panels"
+    "chipboardPanels": "Chipboard Panels",
+    "ProductCatalogues" : "Product Catalogues",
+    "ProductCatalogues.desc" : "Browse and download our comprehensive collection of kitchen product catalogues, design guides, and specification sheets."
   },
   "home": {
     "hero": {
@@ -164,6 +168,7 @@
           "Friday: 2:00 PM - 8:00 PM"
         ]
       }
+      
     }
   }
 }

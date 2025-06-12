@@ -12,7 +12,7 @@ import {
   UserGroupIcon,
   PhoneIcon
 } from '@heroicons/react/24/outline';
-import LogosSection from '../components/LogosSection';
+import CatalogsSection from '../components/CatalogsSection';
 
 
 function Home() {
@@ -347,7 +347,7 @@ function Home() {
       </section>
 
         {/* Logos Section */}
-        <LogosSection />
+        <CatalogsSection />
 
 
         
