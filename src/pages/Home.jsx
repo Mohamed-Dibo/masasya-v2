@@ -13,6 +13,7 @@ import {
   PhoneIcon
 } from '@heroicons/react/24/outline';
 import CatalogsSection from '../components/CatalogsSection';
+import GallerySection from '../components/GallerySection';
 
 
 function Home() {
@@ -348,6 +349,9 @@ function Home() {
 
         {/* Logos Section */}
         <CatalogsSection />
+
+            {/* Gallery Section */}
+      <GallerySection />
 
 
         
