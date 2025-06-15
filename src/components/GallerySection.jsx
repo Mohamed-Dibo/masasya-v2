@@ -187,29 +187,7 @@ function GallerySection() {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
-        {/* <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setFilter(category.id)}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105
-                ${filter === category.id
-                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-white dark:bg-dark-card text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 shadow-md'
-                }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </motion.div> */}
-
-        {/* Slider Container */}
+       
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -247,11 +225,13 @@ function GallerySection() {
                   className="absolute inset-0 cursor-grab active:cursor-grabbing"
                   onClick={() => setSelectedImage(filteredImages[currentSlide])}
                 >
-                  <img
-                    src={filteredImages[currentSlide].src}
-                    alt={filteredImages[currentSlide].title}
-                    className="w-full h-full object-cover"
-                  />
+                  <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl flex justify-center">
+  <img
+    src={filteredImages[currentSlide].src}
+    alt={filteredImages[currentSlide].title}
+    className="max-h-[600px] w-auto object-contain"
+  />
+</div>
                   
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -263,10 +243,10 @@ function GallerySection() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.5 }}
                     >
-                      <span className="inline-block px-3 py-1 bg-primary-500 text-white text-sm 
+                      {/* <span className="inline-block px-3 py-1 bg-primary-500 text-white text-sm 
                                      font-medium rounded-full mb-4">
                         {categories.find(cat => cat.id === filteredImages[currentSlide].category)?.name}
-                      </span>
+                      </span> */}
                       <h3 className="text-3xl md:text-4xl font-bold mb-3">
                         {filteredImages[currentSlide].title}
                       </h3>

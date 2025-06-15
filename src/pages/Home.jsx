@@ -44,38 +44,7 @@ function Home() {
       title: t('home.hero.slides.4.title'),
       subtitle: t('home.hero.slides.4.subtitle'),
       description: t('home.hero.slides.4.description')
-    },
-    {
-      image: "slider157..png",
-      title: t('home.hero.slides.4.title'),
-      subtitle: t('home.hero.slides.4.subtitle'),
-      description: t('home.hero.slides.4.description')
-    },
-    {
-      image: "slider157.png",
-      title: t('home.hero.slides.4.title'),
-      subtitle: t('home.hero.slides.4.subtitle'),
-      description: t('home.hero.slides.4.description')
-    },
-    {
-      image: "slider227..png",
-      title: t('home.hero.slides.4.title'),
-      subtitle: t('home.hero.slides.4.subtitle'),
-      description: t('home.hero.slides.4.description')
-    },
-    {
-      image: "slider227.png",
-      title: t('home.hero.slides.4.title'),
-      subtitle: t('home.hero.slides.4.subtitle'),
-      description: t('home.hero.slides.4.description')
-    },
-    
-    {
-      image: "slider232.png",
-      title: t('home.hero.slides.4.title'),
-      subtitle: t('home.hero.slides.4.subtitle'),
-      description: t('home.hero.slides.4.description')
-    },
+    }   
   ];
 
   useEffect(() => {
