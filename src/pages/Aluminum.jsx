@@ -1,4 +1,4 @@
-import {  X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { Search, X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { t } from 'i18next';
@@ -6,7 +6,7 @@ import { t } from 'i18next';
 function Aluminum() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const [searchTerm, setSearchTerm] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
   const [imageLoadStates, setImageLoadStates] = useState({});
   const [modalImageLoaded, setModalImageLoaded] = useState(false);
