@@ -1,4 +1,4 @@
-import { Search, X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { t } from 'i18next';
@@ -6,8 +6,7 @@ import { t } from 'i18next';
 function Aluminum() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeCategory, setActiveCategory] = useState('led-profiles');
   const [imageLoadStates, setImageLoadStates] = useState({});
   const [modalImageLoaded, setModalImageLoaded] = useState(false);
 
@@ -33,22 +32,12 @@ function Aluminum() {
         },
       ]
     },
-    // {
-    //   id: 'Aluminum Corner Guard',
-    //   name: t('home.features.aluminum.products.Aluminum Corner Guard'),
-    //   description: 'Protective aluminum corner guard with sleek design',
-    //   products: [
-       
-      
-      
-    //   ]
-    // },
     {
       id: '8 mm Aluminum sliding system  Silver Color Turkish',
       name: t('home.features.aluminum.products.8 mm Aluminum sliding system  Silver Color Turkish'),
       description: '',
       products: [
-          {
+        {
           id: 4,
           name: "Closet Profile Modern",
           description: "Contemporary closet aluminum profile",
@@ -104,8 +93,6 @@ function Aluminum() {
           images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/snapedit_1747224944164.jpeg"],
           category: 'closet-profiles'
         },
-
-
       ]
     },
     {
@@ -113,7 +100,7 @@ function Aluminum() {
       name: t('home.features.aluminum.products.Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm'),
       description: '',
       products: [
-         {
+        {
           id: 3,
           name: "Closet Profile Classic",
           description: "Traditional closet aluminum profile",
@@ -176,7 +163,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3238.jpg"],
           category: 'closet-profiles'
         },
-
         {
           id: 9,
           name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
@@ -198,8 +184,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/snapedit_1747230781289-pica.png"],
           category: 'closet-profiles'
         },
-
-
       ]
     },
     {
@@ -249,9 +233,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/snapedit_1747231228965-pica.png"],
           category: 'closet-profiles'
         },
-
-
-
       ]
     },
     {
@@ -315,7 +296,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3249.jpg"],
           category: 'closet-profiles'
         },
-
         {
           id: 9,
           name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
@@ -337,8 +317,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/snapedit_1747229666424.jpeg"],
           category: 'closet-profiles'
         },
-
-
       ]
     },
     {
@@ -346,7 +324,7 @@ function Aluminum() {
       name: t('home.features.aluminum.products.Hinged door Profile'),
       description: '',
       products: [
-          {
+        {
           id: 5,
           name: "Closet Profile Modern",
           description: "Contemporary closet aluminum profile",
@@ -409,7 +387,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Hinged door Profile/DSC_3270.jpg"],
           category: 'closet-profiles'
         },
-
         {
           id: 9,
           name: "Hinged door Profile",
@@ -424,9 +401,6 @@ function Aluminum() {
           images: ["/images/Aluminum/Hinged door Profile/snapedit_1747470228962-pica.png"],
           category: 'closet-profiles'
         },
-
-
-
       ]
     },
     {
@@ -490,10 +464,6 @@ function Aluminum() {
           images: ["/images/Aluminum/18 mm Aluminum Handles profile/8.jpg"],
           category: 'closet-profiles'
         },
-
-
-
-
       ]
     },
     {
@@ -522,24 +492,11 @@ function Aluminum() {
           images: ["/images/Aluminum/Turkish LED aluminum profiles , colors (black - champagne)/snapedit_1747470062083.jpeg"],
           category: 'closet-profiles'
         }
-
-
       ]
     },
-
   ];
 
-  const allProducts = aluminumCategories.flatMap(cat => cat.products);
-
-  const filteredCategories = aluminumCategories.map(category => ({
-    ...category,
-    products: category.products.filter(product =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  })).filter(category =>
-    activeCategory === 'all' || category.id === activeCategory
-  );
+  const activeCategories = aluminumCategories.filter(cat => cat.id === activeCategory);
 
   const handleImageLoad = (productId) => {
     setImageLoadStates(prev => ({ ...prev, [productId]: true }));
@@ -580,83 +537,125 @@ function Aluminum() {
   };
 
   return (
-    <div className="min-h-screen py-24 bg-gradient-to-b from-gray-50 to-white dark:from-dark-bg dark:to-dark-bg/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-dark-bg dark:to-dark-bg/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent
                         bg-gradient-to-r from-primary-600 to-primary-400">
             {t('products.aluminum')}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             {t('home.features.aluminum.description')}
           </p>
         </motion.div>
 
-        <div className="mb-12 flex flex-col md:flex-row gap-4 items-center justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
+          {/* <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 overflow-x-auto">
+            <div className="flex gap-3 min-w-max">
+              {aluminumCategories.map((category, index) => (
+                <motion.button
+                  key={category.id}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-6 py-3 rounded-xl font-medium whitespace-nowrap transition-all duration-300
+                    ${activeCategory === category.id
+                      ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg shadow-primary-500/30 scale-105'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    }`}
+                >
+                  {category.name}
+                </motion.button>
+              ))}
+            </div>
+          </div> */}
+          <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-5">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 justify-center">
+    {aluminumCategories.map((category) => {
+      const isActive = activeCategory === category.id;
+      return (
+        <motion.div
+          key={category.id}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4 }}
+          className={`
+            relative flex flex-col justify-center items-center rounded-2xl p-4
+            cursor-pointer text-center font-semibold transition-all duration-300 transform
+            ${isActive 
+              ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-2xl shadow-pink-300/50 scale-105'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105'
+            }
+          `}
+          onClick={() => setActiveCategory(category.id)}
+        >
+          {/* Optional: Highlight animation */}
+          {isActive && (
+            <motion.span
+              layoutId="highlight"
+              className="absolute inset-0 rounded-2xl opacity-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+              transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+            />
+          )}
 
-          <div className="flex gap-2 flex-wrap justify-center">
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300
-                ${activeCategory === 'all'
-                 ? 'bg-primary-500 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                }`}
-            >
-              {t('home.features.aluminum.products.All categories')}
-            </button>
-            {aluminumCategories.map(category => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300
-                  ${activeCategory === category.id
-                    ? 'bg-primary-500 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
-                  }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
+          {/* Category Name */}
+          <span className="relative z-10 text-sm sm:text-base md:text-lg">
+            {category.name}
+          </span>
+        </motion.div>
+      );
+    })}
+  </div>
+</div>
 
-        {filteredCategories.map((category, categoryIndex) => (
-          category.products.length > 0 && (
+        </motion.div>
+
+        <AnimatePresence mode="wait">
+          {activeCategories.map((category) => (
             <motion.div
               key={category.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="mb-20"
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
             >
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                  {category.name}
-                </h2>
-                <p className="text-lg text-gray-600 dark:text-gray-400">
-                  {category.description}
-                </p>
-              </div>
+              {category.description && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="mb-8 text-center"
+                >
+                  <p className="text-lg text-gray-600 dark:text-gray-400">
+                    {category.description}
+                  </p>
+                </motion.div>
+              )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {category.products.map((product, productIndex) => (
                   <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    key={`${category.id}-${product.id}`}
+                    initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: productIndex * 0.1 }}
-                    className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg
+                    transition={{ duration: 0.4, delay: productIndex * 0.05 }}
+                    className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md
                              hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 cursor-pointer"
                     onClick={() => openModal(product, 0)}
                   >
-                    <div className="relative h-80 overflow-hidden bg-gray-100 dark:bg-gray-700">
-                      {!imageLoadStates[product.id] && (
+                    <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-700">
+                      {!imageLoadStates[`${category.id}-${product.id}`] && (
                         <div className="absolute inset-0 flex items-center justify-center">
                           <Loader2 className="w-8 h-8 text-primary-500 animate-spin" />
                         </div>
@@ -665,15 +664,15 @@ function Aluminum() {
                         src={product.images[0]}
                         alt={product.name}
                         loading="lazy"
-                        onLoad={() => handleImageLoad(product.id)}
+                        onLoad={() => handleImageLoad(`${category.id}-${product.id}`)}
                         className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700 ${
-                          imageLoadStates[product.id] ? 'opacity-100' : 'opacity-0'
+                          imageLoadStates[`${category.id}-${product.id}`] ? 'opacity-100' : 'opacity-0'
                         }`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent
                                     opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <p className="text-white text-sm">Click to view details</p>
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <p className="text-white text-sm font-medium">انقر للعرض</p>
                         </div>
                       </div>
                     </div>
@@ -681,20 +680,8 @@ function Aluminum() {
                 ))}
               </div>
             </motion.div>
-          )
-        ))}
-
-        {filteredCategories.every(cat => cat.products.length === 0) && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-20"
-          >
-            <p className="text-2xl text-gray-500 dark:text-gray-400">
-              No products found matching your search
-            </p>
-          </motion.div>
-        )}
+          ))}
+        </AnimatePresence>
 
         <AnimatePresence>
           {selectedItem && (
@@ -702,14 +689,14 @@ function Aluminum() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
               onClick={closeModal}
             >
               <div className="relative max-w-6xl w-full h-full flex items-center justify-center">
                 <button
                   onClick={closeModal}
                   className="absolute top-4 right-4 text-white hover:text-gray-300 z-10
-                           bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                           bg-black bg-opacity-50 rounded-full p-3 backdrop-blur-sm
                            transition-all duration-300 hover:scale-110"
                 >
                   <X className="w-6 h-6" />
@@ -720,18 +707,18 @@ function Aluminum() {
                     <button
                       onClick={prevImage}
                       className="absolute left-4 text-white hover:text-gray-300 z-10
-                               bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                               bg-black bg-opacity-50 rounded-full p-3 backdrop-blur-sm
                                transition-all duration-300 hover:scale-110"
                     >
-                      <ChevronLeft className="w-6 h-6" />
+                      <ChevronLeft className="w-8 h-8" />
                     </button>
                     <button
                       onClick={nextImage}
                       className="absolute right-4 text-white hover:text-gray-300 z-10
-                               bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                               bg-black bg-opacity-50 rounded-full p-3 backdrop-blur-sm
                                transition-all duration-300 hover:scale-110"
                     >
-                      <ChevronRight className="w-6 h-6" />
+                      <ChevronRight className="w-8 h-8" />
                     </button>
                   </>
                 )}
@@ -757,13 +744,13 @@ function Aluminum() {
                   onClick={(e) => e.stopPropagation()}
                 />
 
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2
-                             bg-black bg-opacity-50 px-6 py-3 rounded-full backdrop-blur-sm">
-                  <p className="text-white text-sm font-medium">
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2
+                             bg-black bg-opacity-70 px-8 py-4 rounded-2xl backdrop-blur-md">
+                  <p className="text-white text-base font-medium text-center">
                     {selectedItem.name}
                   </p>
                   {selectedItem.images.length > 1 && (
-                    <p className="text-gray-300 text-xs text-center mt-1">
+                    <p className="text-gray-300 text-sm text-center mt-2">
                       {currentImageIndex + 1} / {selectedItem.images.length}
                     </p>
                   )}
@@ -776,27 +763,27 @@ function Aluminum() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-24"
         >
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Why Choose Our Aluminum Products?
+            لماذا تختار منتجات الألومنيوم لدينا؟
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Premium Quality",
-                description: "Made from high-grade aluminum for lasting durability",
+                title: "جودة عالية",
+                description: "مصنوعة من ألومنيوم عالي الجودة للمتانة الدائمة",
                 icon: "✓"
               },
               {
-                title: "Modern Design",
-                description: "Contemporary styles to enhance your space aesthetics",
+                title: "تصميم عصري",
+                description: "أنماط معاصرة لتحسين جماليات المساحة الخاصة بك",
                 icon: "✦"
               },
               {
-                title: "Easy Installation",
-                description: "Simple mounting system for hassle-free setup",
+                title: "تركيب سهل",
+                description: "نظام تركيب بسيط للتثبيت بدون متاعب",
                 icon: "⚙"
               }
             ].map((feature, index) => (
@@ -804,9 +791,9 @@ function Aluminum() {
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
-                className="text-center p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg
-                         hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.7 }}
+                className="text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg
+                         hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="text-5xl mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
