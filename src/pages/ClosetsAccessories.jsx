@@ -461,6 +461,24 @@ function ClosetsAccessories() {
       size: "830-1150mm",
       images: ["/images/ASYA/NEW ACCESSORIES/ACS 908 GREY NEW.jpeg"]
     }
+    ,{
+      id: "ASYA-902",
+      name: "ASYA-902",
+      size: "830-1150mm",
+      images: ["/images/ASYA/NEW ACCESSORIES/ASYA - 902.png"]
+    }
+    ,{
+      id: "ASYA-909",
+      name: "ASYA-909",
+      size: "830-1150mm",
+      images: ["/images/ASYA/NEW ACCESSORIES/ASYA - 909.png"]
+    }
+    ,{
+      id: "ASYA-952",
+      name: "ASYA-952",
+      size: "830-1150mm",
+      images: ["/images/ASYA/NEW ACCESSORIES/ASYA - 952.png"]
+    }
   ];
   
   const sizes = [...new Set(accessories.map(item => item.size))];

@@ -112,6 +112,18 @@ function BasicHardware() {
       name: "TRASH BINS 60 LITER",
       image: "/images/BASIC HARDWARE/WB.0240.A0019.jpg"
     }
+    ,
+    {
+      id: "WB0240A0020",
+      name: "TRASH BINS 60 LITER",
+      image: "/images/BASIC HARDWARE/Your paragraph text.png"
+    }
+    ,
+    {
+      id: "WB0240A0021",
+      name: "TRASH BINS 60 LITER",
+      image: "/images/BASIC HARDWARE/HING.png"
+    }
   ];
 
   return (

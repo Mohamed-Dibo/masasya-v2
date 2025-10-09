@@ -58,6 +58,22 @@
       }
     },
     "features": {
+       "aluminum": {
+        "description": "Discover our wide range of high-quality aluminum products, designed to provide durability and elegance to your projects.",
+         "products": {
+          "8 mm Aluminum sliding system  Silver Color Turkish": "8 mm Aluminum sliding system  Silver Color Turkish",
+        "18 mm Aluminum Handles profile": "18 mm Aluminum Handles profile",
+        "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm": "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+        "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm": "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+        "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm": "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+        "Hinged door Profile": "Hinged door Profile",
+        "Turkish LED aluminum profiles , colors (black - champagne)": "Turkish LED aluminum profiles , colors (black - champagne)",
+        "LED Profiles": "LED Profiles",
+        "Aluminum Corner Guard": "Aluminum Corner Guard",
+        "All categories": "All Categories"
+        }
+        
+      },
       "quality": {
         "title": "Premium Quality",
         "description": "Exceptional materials and expert craftsmanship"

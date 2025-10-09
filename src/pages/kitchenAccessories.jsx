@@ -251,6 +251,14 @@ function KitchenAccessories() {
         "/images/ASYA/ASYA-945ASYA-946/01-铝合金拉篮-2.jpg",
         "/images/ASYA/ASYA-945ASYA-946/01-铝合金拉篮-3.jpg"
       ]
+    },
+    {
+      id: "RICE BOX",
+      name: "RICE BOX",
+      size: "450 MM",
+      images: [
+        "/images/ASYA/RICE BOX.png"
+      ]
     }
     
   ];

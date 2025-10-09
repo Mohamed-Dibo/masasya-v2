@@ -65,7 +65,7 @@ function App() {
               </Routes>
             </main>
           </Suspense>
-          <Chatbot />
+          {/* <Chatbot /> */}
           <Footer />
         </div>
         {/* </ScrollToTop> */}

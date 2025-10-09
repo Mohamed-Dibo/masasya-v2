@@ -1,54 +1,583 @@
-import { motion } from 'framer-motion';
+import {  X, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { t } from 'i18next';
 
 function Aluminum() {
-  const [detailsVisible, setDetailsVisible] = useState({});
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const toggleDetails = (id) => {
-    setDetailsVisible((prevState) => ({
-      ...prevState,
-      [id]: !prevState[id], // عكس القيمة الحالية للكرت المحدد
-    }));
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [imageLoadStates, setImageLoadStates] = useState({});
+  const [modalImageLoaded, setModalImageLoaded] = useState(false);
+
+  const aluminumCategories = [
+    {
+      id: 'led-profiles',
+      name: t('home.features.aluminum.products.LED Profiles'),
+      description: 'Premium LED aluminum profiles for modern lighting solutions',
+      products: [
+        {
+          id: 1,
+          name: "Premium Aluminum Handle",
+          description: "Modern aluminum handle with brushed finish",
+          images: ["/images/LED_profile.jpg"],
+          category: 'led-profiles'
+        },
+        {
+          id: 2,
+          name: "Aluminum Profile Strip",
+          description: "High-quality aluminum profile for cabinet edges",
+          images: ["/images/LED_profile2.jpg"],
+          category: 'led-profiles'
+        },
+      ]
+    },
+    // {
+    //   id: 'Aluminum Corner Guard',
+    //   name: t('home.features.aluminum.products.Aluminum Corner Guard'),
+    //   description: 'Protective aluminum corner guard with sleek design',
+    //   products: [
+       
+      
+      
+    //   ]
+    // },
+    {
+      id: '8 mm Aluminum sliding system  Silver Color Turkish',
+      name: t('home.features.aluminum.products.8 mm Aluminum sliding system  Silver Color Turkish'),
+      description: '',
+      products: [
+          {
+          id: 4,
+          name: "Closet Profile Modern",
+          description: "Contemporary closet aluminum profile",
+          images: ["/images/Closets_profile_new.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 1,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3224.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3225.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3255.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3256.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3258.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/DSC_3261.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 7,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/8 mm Aluminum sliding system  Silver Color Turkish/snapedit_1747224944164.jpeg"],
+          category: 'closet-profiles'
+        },
+
+
+      ]
+    },
+    {
+      id: 'Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm',
+      name: t('home.features.aluminum.products.Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm'),
+      description: '',
+      products: [
+         {
+          id: 3,
+          name: "Closet Profile Classic",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Closets_profile.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 1,
+          name: "8 mm Aluminum sliding system  Silver Color Turkish",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/ChatGPT Image 15 مايو 2025، 09_07_44 ص.png"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/ChatGPT Image 17 مايو 2025، 09_10_26 ص.png"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3209.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3212.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3222.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3235.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 7,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3236.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 8,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3238.jpg"],
+          category: 'closet-profiles'
+        },
+
+        {
+          id: 9,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3246.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 10,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/DSC_3263.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 11,
+          name: "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm/snapedit_1747230781289-pica.png"],
+          category: 'closet-profiles'
+        },
+
+
+      ]
+    },
+    {
+      id: 'Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm',
+      name: t('home.features.aluminum.products.Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm'),
+      description: '',
+      products: [
+        {
+          id: 1,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/1.png"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/2.png"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/3.png"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/DSC_3209.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/5.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm/snapedit_1747231228965-pica.png"],
+          category: 'closet-profiles'
+        },
+
+
+
+      ]
+    },
+    {
+      id: 'Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm',
+      name: t('home.features.aluminum.products.Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm'),
+      description: '',
+      products: [
+        {
+          id: 1,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3207.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3214.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3218.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3223.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3229.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3233.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 7,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3234.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 8,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3249.jpg"],
+          category: 'closet-profiles'
+        },
+
+        {
+          id: 9,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3259.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 10,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/DSC_3268.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 11,
+          name: "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm/snapedit_1747229666424.jpeg"],
+          category: 'closet-profiles'
+        },
+
+
+      ]
+    },
+    {
+      id: 'Hinged door Profile',
+      name: t('home.features.aluminum.products.Hinged door Profile'),
+      description: '',
+      products: [
+          {
+          id: 5,
+          name: "Closet Profile Modern",
+          description: "Contemporary closet aluminum profile",
+          images: ["/images/GLASS_PROFILE.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 1,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3216.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3239.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3242.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3243.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3262.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3264.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 7,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3269.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 8,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3270.jpg"],
+          category: 'closet-profiles'
+        },
+
+        {
+          id: 9,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/DSC_3271.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 10,
+          name: "Hinged door Profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Hinged door Profile/snapedit_1747470228962-pica.png"],
+          category: 'closet-profiles'
+        },
+
+
+
+      ]
+    },
+    {
+      id: '18 mm Aluminum Handles profile',
+      name: t('home.features.aluminum.products.18 mm Aluminum Handles profile'),
+      description: '',
+      products: [
+        {
+          id: 1,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/1.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/2.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/3.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 4,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/4.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 5,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/5.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 6,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/6.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 7,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/7.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 8,
+          name: "18 mm Aluminum Handles profile",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/18 mm Aluminum Handles profile/8.jpg"],
+          category: 'closet-profiles'
+        },
+
+
+
+
+      ]
+    },
+    {
+      id: 'Turkish LED aluminum profiles , colors (black - champagne)',
+      name: t('home.features.aluminum.products.Turkish LED aluminum profiles , colors (black - champagne)'),
+      description: '',
+      products: [
+        {
+          id: 1,
+          name: "Turkish LED aluminum profiles , colors (black - champagne)",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Turkish LED aluminum profiles , colors (black - champagne)/DSC_3228.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 2,
+          name: "Turkish LED aluminum profiles , colors (black - champagne)",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Turkish LED aluminum profiles , colors (black - champagne)/DSC_3248.jpg"],
+          category: 'closet-profiles'
+        },
+        {
+          id: 3,
+          name: "Turkish LED aluminum profiles , colors (black - champagne)",
+          description: "Traditional closet aluminum profile",
+          images: ["/images/Aluminum/Turkish LED aluminum profiles , colors (black - champagne)/snapedit_1747470062083.jpeg"],
+          category: 'closet-profiles'
+        }
+
+
+      ]
+    },
+
+  ];
+
+  const allProducts = aluminumCategories.flatMap(cat => cat.products);
+
+  const filteredCategories = aluminumCategories.map(category => ({
+    ...category,
+    products: category.products.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })).filter(category =>
+    activeCategory === 'all' || category.id === activeCategory
+  );
+
+  const handleImageLoad = (productId) => {
+    setImageLoadStates(prev => ({ ...prev, [productId]: true }));
   };
 
-  const aluminumProducts = [
-    {
-      id: 1,
-      name: "Premium Aluminum Handle",
-      description: "Modern aluminum handle with brushed finish",
-      price: 29.99,
-      image: "/images/LED_profile.jpg"
-    },
-    {
-      id: 2,
-      name: "Aluminum Profile Strip",
-      description: "High-quality aluminum profile for cabinet edges",
-      price: 45.99,
-      image: "/images/LED_profile2.jpg"
-    },
-    {
-      id: 4,
-      name: "Aluminum Corner Guard",
-      description: "Protective aluminum corner guard with sleek design",
-      price: 19.99,
-      image: "/images/Closets_profile.jpg"
-    },
-    {
-      id: 5,
-      name: "Aluminum Corner Guard",
-      description: "Protective aluminum corner guard with sleek design",
-      price: 19.99,
-      image: "/images/GLASS_PROFILE.jpg"
-    },
-    {
-      id: 3,
-      name: "Aluminum Corner Guard",
-      description: "Protective aluminum corner guard with sleek design",
-      price: 19.99,
-      image: "/images/Closets_profile_new.jpg"
-    },
-  ];
+  const openModal = (item, imageIndex = 0) => {
+    setSelectedItem(item);
+    setCurrentImageIndex(imageIndex);
+    setModalImageLoaded(false);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    setCurrentImageIndex(0);
+    setModalImageLoaded(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    if (selectedItem) {
+      setModalImageLoaded(false);
+      setCurrentImageIndex((prev) =>
+        prev === selectedItem.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    if (selectedItem) {
+      setModalImageLoaded(false);
+      setCurrentImageIndex((prev) =>
+        prev === 0 ? selectedItem.images.length - 1 : prev - 1
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen py-24 bg-gradient-to-b from-gray-50 to-white dark:from-dark-bg dark:to-dark-bg/50">
@@ -59,68 +588,195 @@ function Aluminum() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent 
-                       bg-gradient-to-r from-primary-600 to-primary-400">
-            Aluminum Products
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent
+                        bg-gradient-to-r from-primary-600 to-primary-400">
+            {t('products.aluminum')}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Discover our premium collection of aluminum handles, profiles, and accessories
+            {t('home.features.aluminum.description')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {aluminumProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg 
-                       hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
+        <div className="mb-12 flex flex-col md:flex-row gap-4 items-center justify-between">
+
+          <div className="flex gap-2 flex-wrap justify-center">
+            <button
+              onClick={() => setActiveCategory('all')}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300
+                ${activeCategory === 'all'
+                 ? 'bg-primary-500 text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                }`}
             >
-              <div className="relative h-100 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
+              {t('home.features.aluminum.products.All categories')}
+            </button>
+            {aluminumCategories.map(category => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300
+                  ${activeCategory === category.id
+                    ? 'bg-primary-500 text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  }`}
+              >
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {filteredCategories.map((category, categoryIndex) => (
+          category.products.length > 0 && (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              className="mb-20"
+            >
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                  {category.name}
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-400">
+                  {category.description}
+                </p>
               </div>
 
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  {product.name}
-                </h2>
-                {
-            detailsVisible[product.id] && (
-               <p className="text-gray-600 dark:text-gray-300 mb-4">
-              {product.description}
-               </p>
-                  )
-                     }
-
-                
-                <div className="flex items-center justify-between">
-                  {/* <span className="text-2xl font-bold text-primary-600">
-                    ${product.price}
-                  </span> */}
-                  <button
-                    className="px-4 py-2 bg-primary-500 text-white rounded-lg
-                             hover:bg-primary-600 transition-colors duration-300"
-                    onClick={() => toggleDetails(product.id)}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {category.products.map((product, productIndex) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: productIndex * 0.1 }}
+                    className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg
+                             hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 cursor-pointer"
+                    onClick={() => openModal(product, 0)}
                   >
-                    {detailsVisible[product.id] ? 'Hide Details' : 'View Details'}
-                  </button>
+                    <div className="relative h-80 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                      {!imageLoadStates[product.id] && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Loader2 className="w-8 h-8 text-primary-500 animate-spin" />
+                        </div>
+                      )}
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        loading="lazy"
+                        onLoad={() => handleImageLoad(product.id)}
+                        className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700 ${
+                          imageLoadStates[product.id] ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <p className="text-white text-sm">Click to view details</p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )
+        ))}
+
+        {filteredCategories.every(cat => cat.products.length === 0) && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-20"
+          >
+            <p className="text-2xl text-gray-500 dark:text-gray-400">
+              No products found matching your search
+            </p>
+          </motion.div>
+        )}
+
+        <AnimatePresence>
+          {selectedItem && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+              onClick={closeModal}
+            >
+              <div className="relative max-w-6xl w-full h-full flex items-center justify-center">
+                <button
+                  onClick={closeModal}
+                  className="absolute top-4 right-4 text-white hover:text-gray-300 z-10
+                           bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                           transition-all duration-300 hover:scale-110"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+
+                {selectedItem.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-4 text-white hover:text-gray-300 z-10
+                               bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                               transition-all duration-300 hover:scale-110"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-4 text-white hover:text-gray-300 z-10
+                               bg-black bg-opacity-50 rounded-full p-2 backdrop-blur-sm
+                               transition-all duration-300 hover:scale-110"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
+                  </>
+                )}
+
+                {!modalImageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Loader2 className="w-12 h-12 text-primary-500 animate-spin" />
+                  </div>
+                )}
+
+                <motion.img
+                  key={currentImageIndex}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  src={selectedItem.images[currentImageIndex]}
+                  alt={selectedItem.name}
+                  onLoad={() => setModalImageLoaded(true)}
+                  className={`max-w-full max-h-[90vh] object-contain transition-opacity duration-300 ${
+                    modalImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onClick={(e) => e.stopPropagation()}
+                />
+
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2
+                             bg-black bg-opacity-50 px-6 py-3 rounded-full backdrop-blur-sm">
+                  <p className="text-white text-sm font-medium">
+                    {selectedItem.name}
+                  </p>
+                  {selectedItem.images.length > 1 && (
+                    <p className="text-gray-300 text-xs text-center mt-1">
+                      {currentImageIndex + 1} / {selectedItem.images.length}
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          )}
+        </AnimatePresence>
 
-        {/* Features Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-24"
         >
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
@@ -131,47 +787,29 @@ function Aluminum() {
               {
                 title: "Premium Quality",
                 description: "Made from high-grade aluminum for lasting durability",
-                icon: (
-                  <svg className="w-8 h-8 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )
+                icon: "✓"
               },
               {
                 title: "Modern Design",
-                description: "Contemporary styles to enhance your kitchen's aesthetics",
-                icon: (
-                  <svg className="w-8 h-8 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                  </svg>
-                )
+                description: "Contemporary styles to enhance your space aesthetics",
+                icon: "✦"
               },
               {
                 title: "Easy Installation",
                 description: "Simple mounting system for hassle-free setup",
-                icon: (
-                  <svg className="w-8 h-8 text-primary-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                )
+                icon: "⚙"
               }
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-                className="text-center p-6 bg-white dark:bg-dark-card rounded-xl shadow-soft"
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
+                className="text-center p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg
+                         hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <div className="flex justify-center mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                <div className="text-5xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">

@@ -56,6 +56,21 @@
       }
     },
     "features": {
+      "aluminum": {
+        "description": "اكتشف تشكيلتنا الواسعة من منتجات الألمنيوم عالية الجودة، المصممة لتوفير المتانة والأناقة لمشاريعك.",
+         "products": {
+          "8 mm Aluminum sliding system  Silver Color Turkish": "قطاع المنيوم سحاب فضي اللون تركي 8 مم",
+          "18 mm Aluminum Handles profile" :"قطاع ماسكات المنيوم  18 مم ",
+          "Aluminum sliding  (black - gold - champagne) Turkish hydraulic 8 mm":" قطاع المنيوم سحاب الوان ( أسود - ذهبي - شامبين) تركي هيدروليك 8 مم ",
+          "Aluminum sliding system  colors (shiny silver - bronze) hydraulic 18 mm" :"قطاع المنيوم سحاب الوان (فضي لامع - برونزي ) هيدروليك 18 مم",
+          "Aluminum sliding system color (black - gold) Turkish hydraulic 18 mm":"قطاع المنيوم سحاب الوان (اسود - ذهبي ) هيدروليك تركي 18 مم",
+          "Hinged door Profile": "قطاع درفة مفصلية",
+          "Turkish LED aluminum profiles , colors (black - champagne)":"قطاعات المنيوم ليد تركي الوان ( اسود - شامبين)",
+          "LED Profiles": "قطاعات ليد",
+          "Aluminum Corner Guard": "حامي زوايا المنيوم",
+          "All categories": "جميع الفئات"
+        }
+      },
       "quality": {
         "title": "جودة متميزة",
         "description": "مواد استثنائية وحرفية خبيرة"

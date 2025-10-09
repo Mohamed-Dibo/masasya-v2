@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import ThemeToggle from './ThemeToggle';
+import logo from '../../public/logo_mas.png';
 
 function Navbar() {
   const { t, i18n } = useTranslation();
@@ -52,7 +53,7 @@ function Navbar() {
               <Link to="/" className="flex-shrink-0 flex items-center">
                 <img 
                   className="h-12 w-auto transform hover:scale-105 transition-transform duration-300" 
-                  src="logo_mas.png" 
+                  src={logo}
                   alt="Masya" 
                 />
               </Link>
