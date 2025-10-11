@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-
+import logo from '../../public/6.jpg'
 function Footer() {
   const { t } = useTranslation();
 
@@ -20,7 +20,7 @@ function Footer() {
           <motion.div {...fadeInUp} className="space-y-4">
             <Link to="/" className="block mb-6">
               <img 
-                src="6.jpg" 
+                src={logo}
                 alt="Masya" 
                 className="h-100 w-100 brightness-200"
               />
