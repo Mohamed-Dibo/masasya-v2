@@ -594,7 +594,7 @@ function Aluminum() {
             relative flex flex-col justify-center items-center rounded-2xl p-4
             cursor-pointer text-center font-semibold transition-all duration-300 transform
             ${isActive 
-              ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-2xl shadow-pink-300/50 scale-105'
+              ? 'bg-gradient-to-r from-indigo-500 via-primary-600 to-primary-500 text-white shadow-2xl shadow-pink-300/50 scale-105'
               : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105'
             }
           `}
@@ -604,7 +604,7 @@ function Aluminum() {
           {isActive && (
             <motion.span
               layoutId="highlight"
-              className="absolute inset-0 rounded-2xl opacity-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+              className="absolute inset-0 rounded-2xl opacity-20 bg-gradient-to-r from-primary-500 via-primary-500 to-brown-500"
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             />
           )}
